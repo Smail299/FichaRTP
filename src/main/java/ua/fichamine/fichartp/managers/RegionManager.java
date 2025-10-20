@@ -79,9 +79,7 @@ public class RegionManager {
                 }
 
                 for (ProtectedRegion region : wgRegionManager.getRegions().values()) {
-                    if (region.getOwners().contains(player.getUniqueId()) ||
-                            region.getMembers().contains(player.getUniqueId())) {
-
+                    if (region.getOwners().size() > 0 || region.getMembers().size() > 0) {
                         com.sk89q.worldedit.math.BlockVector3 min = region.getMinimumPoint();
                         com.sk89q.worldedit.math.BlockVector3 max = region.getMaximumPoint();
                         com.sk89q.worldedit.math.BlockVector3 center = min.add(max).divide(2);
@@ -124,8 +122,7 @@ public class RegionManager {
 
                 for (ProtectedRegion region : wgRegionManager.getRegions().values()) {
                     if (region.getId().startsWith("ps") &&
-                            (region.getOwners().contains(player.getUniqueId()) ||
-                                    region.getMembers().contains(player.getUniqueId()))) {
+                            (region.getOwners().size() > 0 || region.getMembers().size() > 0)) {
 
                         com.sk89q.worldedit.math.BlockVector3 min = region.getMinimumPoint();
                         com.sk89q.worldedit.math.BlockVector3 max = region.getMaximumPoint();
